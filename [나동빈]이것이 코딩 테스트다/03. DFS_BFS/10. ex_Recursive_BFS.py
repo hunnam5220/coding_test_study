@@ -13,7 +13,7 @@ def bfs(graph, start, visited):
     while queue:
         # 큐에서 하나의 원소를 뽑아 출력
         v = queue.popleft()
-        print(v, end =' ')
+        print(v, end=' ')
 
         # 해당 원소와 연결된, 아직 방문하지 않은 원소들을 큐에 삽입
         for i in graph[v]:
@@ -39,4 +39,4 @@ graph = [
 visited = [False] * 9
 
 # 정의된 BFS 함수 호출
-bfs(graph, 1, visited)
+recursive_bfs(graph, 1, visited)
