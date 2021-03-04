@@ -9,7 +9,18 @@ from collections import deque as dq
 
 
 def bfs(graph, root_node, visited):
-    pass
+    queue = dq([root_node])
+
+    visited[root_node - 1] = True
+
+    while queue:
+        v = queue.popleft()
+        print(v, end=' ')
+
+        for step in graph[v - 1]:
+            if not visited[step - 1]:
+                queue.append(step)
+                visited[step - 1] = True
 
 
 graph = [
@@ -24,6 +35,8 @@ graph = [
 ]
 visited = [False] * len(graph)
 root_node = 1
+print('result : ', end='')
 bfs(graph, root_node, visited)
 
 # answer : 1 2 3 8 7 4 5 6
+print('\nanswer : 1 2 3 8 7 4 5 6')
