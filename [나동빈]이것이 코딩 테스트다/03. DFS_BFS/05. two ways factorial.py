@@ -4,8 +4,7 @@ from sys import stdin
 def recursive_func(n):
     if n == 1:
         return n
-    else:
-        return recursive_func(n - 1) * n
+    return recursive_func(n - 1) * n
 
 
 def iterative_func(n):
