@@ -29,6 +29,8 @@ graph = [
 ]
 root_node = 1
 visited = [False] * len(graph)
+print('result : ', end='')
 dfs(graph, root_node, visited)
 
 # answer : 1 2 7 6 8 3 4 5
+print('\nanswer : 1 2 7 6 8 3 4 5')
