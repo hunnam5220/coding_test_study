@@ -3,7 +3,7 @@ from sys import stdin
 n, m = map(int, stdin.readline().split())
 arr = [int(stdin.readline().rstrip()) for x in range(n)]
 d = [10001] * (m + 1)
-d[0] = 10001
+d[0] = 0
 
 for x in arr:
     for y in range(1, m + 1):
