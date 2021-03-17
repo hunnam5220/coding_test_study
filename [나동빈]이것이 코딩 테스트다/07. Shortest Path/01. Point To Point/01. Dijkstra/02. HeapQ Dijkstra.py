@@ -9,7 +9,7 @@ distance = [INF] * n
 
 for _ in range(m):
     a, b, c = map(int, stdin.readline().split())
-    graph[a - 1].append((b - 1, c))
+    graph[a - 1].append([b - 1, c])
  
 
 def dijkstra(start_node):
