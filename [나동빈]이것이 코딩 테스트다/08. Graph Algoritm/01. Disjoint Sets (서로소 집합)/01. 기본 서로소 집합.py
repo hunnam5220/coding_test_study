@@ -23,7 +23,6 @@ parent = [0] * v
 for i in range(v):
     parent[i] = i + 1
 
-
 for i in range(e):
     a, b = map(int, stdin.readline().split())
     union_parent(parent, a, b)
