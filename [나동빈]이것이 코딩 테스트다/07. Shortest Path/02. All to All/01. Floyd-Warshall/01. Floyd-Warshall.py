@@ -16,20 +16,27 @@ for a in range(n):
         if a == b:
             graph[a][b] = 0
 
-
+""" 간선에 대한 정보를 입력받기 """
 for _ in range(m):
+    """ A 노드에서 B 노드로 가는 비용을 C라고 한다. """
     a, b, c = map(int, stdin.readline().split())
     graph[a - 1][b - 1] = c
 
+""" 점화식에 따라 플로이드 워셜 알고리즘 수행 """
 for k in range(n):
     for a in range(n):
         for b in range(n):
+            """ 
+            A 노드에서 B 노드로 가는 비용과
+            A 노드에서 K 노드 + K 노드에서 B 노드로 가는 비용을 비교 
+            """
             graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
 
+""" 출력 """
 for a in range(n):
     for b in range(n):
         if graph[a][b] == INF:
-            print("I", end=' ')
+            print("%3s" % 'I', end='')
         else:
-            print(graph[a][b], end=' ')
+            print("%3d" % graph[a][b], end=' ')
     print()
