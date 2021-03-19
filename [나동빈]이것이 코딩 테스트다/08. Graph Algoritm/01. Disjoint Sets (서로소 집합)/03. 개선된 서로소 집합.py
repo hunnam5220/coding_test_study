@@ -2,7 +2,11 @@ from sys import stdin
 
 
 def find_parent(parent, x):
+    """ 부모 노드 찾기 - 경로 압축 """
+
+    """ 부모 노드 리스트와 x가 같지 않으면"""
     if parent[x - 1] != x:
+        """ 부모 노드 리스트를 직접 바꿔버림 """
         parent[x - 1] = find_parent(parent, parent[x - 1])
     return parent[x - 1]
 
