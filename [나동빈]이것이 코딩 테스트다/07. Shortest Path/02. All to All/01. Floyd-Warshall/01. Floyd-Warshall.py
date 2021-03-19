@@ -36,7 +36,7 @@ for k in range(n):
 for a in range(n):
     for b in range(n):
         if graph[a][b] == INF:
-            print("%3s" % 'I', end='')
+            print("%4s" % 'I', end='')
         else:
-            print("%3d" % graph[a][b], end=' ')
+            print("%5d" % graph[a][b], end='')
     print()
