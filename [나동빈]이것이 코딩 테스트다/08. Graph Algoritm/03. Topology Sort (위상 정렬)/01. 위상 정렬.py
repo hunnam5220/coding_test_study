@@ -17,6 +17,20 @@ def topology_sort():
 
     for i in range(v):
         if indegree[i] == 0:
-            q.append(i)
+            q.append(i + 1)
 
-            
+    while q:
+        now = q.popleft()
+        result.append(now)
+
+        for i in graph[now - 1]:
+            indegree[i - 1] -= 1
+
+            if indegree[i - 1] == 0:
+                q.append(i)
+
+    for i in result:
+        print(i, end=' ')
+
+
+topology_sort()
