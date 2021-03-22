@@ -2,14 +2,12 @@ from sys import stdin
 
 
 def find_parent(parent, x):
-    """  """
     if parent[x - 1] != x:
         parent[x - 1] = find_parent(parent, parent[x - 1])
     return parent[x - 1]
 
 
 def union_parent(parent, a, b):
-    """  """
     a = find_parent(parent, a)
     b = find_parent(parent, b)
 
@@ -29,6 +27,7 @@ for step in range(e):
     a, b, cost = map(int, stdin.readline().split())
     edges.append((cost, a, b))
 
+""" 비용 크기 순으로 정렬 """
 edges.sort()
 
 for edge in edges:
