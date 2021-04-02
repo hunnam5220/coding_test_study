@@ -8,6 +8,7 @@ for step in range(n):
 
 result = [0]
 
+
 def infection(x, y):
     """ 바이러스 퍼지게 하기 """
 
@@ -22,6 +23,7 @@ def install(count):
         return
     for x in range(n):
         for y in range(m):
+            break
             
 
 def get_area_zero():
