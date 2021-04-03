@@ -1,12 +1,15 @@
+# BFS로 풀어보기
+
 from sys import stdin
 
 n, k = map(int, stdin.readline().split())
 graph = []
-zero = [0]
+# 데이터 리스트 생성
+
+
 for step in range(n):
     pp = list(map(int, stdin.readline().split()))
-    zero[0] += pp.count(0)
-    graph.append(pp)
+    # 바이러스 존재하면 바이러스 좌표, 시간 정보 삽입
 
 tmp = [item[:] for item in graph]
 
