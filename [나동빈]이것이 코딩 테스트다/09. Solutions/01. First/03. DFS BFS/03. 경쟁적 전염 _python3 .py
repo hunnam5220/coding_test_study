@@ -24,7 +24,6 @@ def infection(number, nx, ny):
 
         if (n > kx > -1 and n > ky > -1) and tmp[kx][ky] == 0:
             tmp[kx][ky] = number
-            zero[0] -= 1
 
 
 for step in range(s):
@@ -34,8 +33,6 @@ for step in range(s):
                 if graph[nx][ny] == number:
                     infection(number, nx, ny)
 
-        if zero[0] == 0:
-            break
     graph = [item[:] for item in tmp]
 
 print(tmp[x - 1][y - 1])
