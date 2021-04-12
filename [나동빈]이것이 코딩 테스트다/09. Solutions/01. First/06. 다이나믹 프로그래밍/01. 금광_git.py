@@ -5,8 +5,8 @@ for tc in range(int(input())):
     array = list(map(int, input().split()))
 
     # 다이나믹 프로그래밍을 위한 2차원 DP 테이블 초기화
-    dp = []
-    index = 0
+    dp, index = [], 0
+
     for i in range(n):
         dp.append(array[index:index + m])
         index += m
