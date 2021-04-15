@@ -1,24 +1,24 @@
 from sys import stdin
 
-arr = [1, 2, 3, 5]
-dp = []
-for x in arr:
-    for y in arr:
-        if x * y not in dp:
-            dp.append(x * y)
-
 n = int(stdin.readline().rstrip())
-start = 1
-end = 4
+dp = [0] * (n + 1)
+dp[0] = 1
+idx2 = idx3 = idx5 = 0
+n2, n3, n5 = 2, 3, 5
 
-for step in range(n // 4):
-    for i in dp[start:end]:
-        for j in range(len(arr)):
-            if (i * arr[j]) not in dp:
-                dp.append(i * arr[j])
-                end += 1
-                start += 1
+for i in range(1, n):
+    dp[i] = min(n2, n3, n5)
 
-    dp.sort()
+    if dp[i] == n2:
+        idx2 += 1
+        n2 = dp[idx2] * 2
+
+    if dp[i] == n3:
+        idx3 += 1
+        n3 = dp[idx3] * 3
+
+    if dp[i] == n5:
+        idx5 += 1
+        n5 = dp[idx5] * 5
 
 print(dp[n - 1])
