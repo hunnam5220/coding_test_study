@@ -1,7 +1,7 @@
 from sys import stdin
 
 n, m = map(int, stdin.readline().rstrip().split())
-inf = int(1e9)
+inf = int(1e3)
 arr = [[inf] * n for _ in range(n)]
 
 for _ in range(m):
@@ -21,10 +21,12 @@ for k in range(n):
             arr[i][j] = min(arr[i][j], arr[i][k] + arr[k][j])
 
 
-for i in range(n):
+# 학생 한명씩 도달 할 수 있는지 체크
+for x in range(n):
     cnt = 0
-    for j in range(n):
-        if arr[i][j] != inf or arr[j][i] != inf:
+    for y in range(n):
+        # 1이 4? 혹은 4가 1? 양방향으로 체크함
+        if arr[x][y] != inf or arr[y][x] != inf:
             cnt += 1
 
     if cnt == n:
