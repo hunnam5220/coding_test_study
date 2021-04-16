@@ -29,6 +29,8 @@ for i in range(m):
 plan = list(map(int, stdin.readline().split()))
 result = True
 
+
+# ??????
 for i in range(m - 1):
     if find_parent(parent, plan[i]) != find_parent(parent, plan[i + 1]):
         result = False
