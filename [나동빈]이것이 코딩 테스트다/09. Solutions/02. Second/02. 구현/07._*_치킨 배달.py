@@ -4,14 +4,17 @@ from itertools import combinations
 n, m = map(int, stdin.readline().split())
 house = []
 chiken = []
+city = []
+
+for _ in range(n):
+    city.append(list(map(int, stdin.readline().split())))
 
 for x in range(n):
-    tmp = list(map(int, stdin.readline().split()))
     for y in range(n):
-        if tmp[y] == 1:
-            house.append((x, y))
-        else:
-            chiken.append((x, y))
+        if city[x][y] == 1:
+            house.append([x, y])
+        if city[x][y] == 2:
+            chiken.append([x, y])
 
 comb_s = list(combinations(chiken, m))
 
