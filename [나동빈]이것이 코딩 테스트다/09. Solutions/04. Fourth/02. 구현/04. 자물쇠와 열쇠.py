@@ -7,6 +7,7 @@ def check_lock(new_lock, lock_length):
 
 
 def turn_key(key, key_length):
+    new_key = [[0] * key_length for _ in range(key_length)]
     for x in range(key_length):
         for y in range(key_length):
             new_key[y][key_length - 1 - x] = key[x][y]
