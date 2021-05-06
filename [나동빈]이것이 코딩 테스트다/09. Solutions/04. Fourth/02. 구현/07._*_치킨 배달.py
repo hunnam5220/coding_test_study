@@ -1,5 +1,6 @@
 from sys import stdin
 from itertools import combinations
+from itertools import permutations
 
 n, m = map(int, stdin.readline().split())
 chicken_xy = []
