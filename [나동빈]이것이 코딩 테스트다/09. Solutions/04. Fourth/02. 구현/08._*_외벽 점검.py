@@ -37,7 +37,7 @@ def solution(n, weak, dist):
     # 친구 다 모였는데도 취약점 점검 안되면 -1 반환
     if answer > len(dist):
         return -1
-    
+
     return answer
 
 
