@@ -4,7 +4,7 @@ import heapq
 def solution(food_times, k):
     if sum(food_times) <= k:
         return -1
-    
+
     q = []
     length = len(food_times)
     for i in range(len(food_times)):
