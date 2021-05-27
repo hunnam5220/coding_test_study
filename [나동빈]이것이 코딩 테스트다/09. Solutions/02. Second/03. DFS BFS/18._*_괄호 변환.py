@@ -14,6 +14,7 @@ def check_proper(p):
     for i in p:
         if i == '(':
             cnt += 1
+        else:
             if cnt == 0:
                 return False
             cnt -= 1
