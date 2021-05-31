@@ -20,7 +20,7 @@ def get_union(x, y):
         val += board[x][y]
         cnt += 1
         for i in range(4):
-            nx, ny = a + dx[i], b + dy[i]
+            nx, ny = a + dx[i], b + dy[i] 
 
             if 0 <= nx < len(board) and 0 <= ny < len(board) and (nx, ny) not in visited and l <= abs(board[nx][ny] - board[a][b]) <= r:
                 q.append((nx, ny))
