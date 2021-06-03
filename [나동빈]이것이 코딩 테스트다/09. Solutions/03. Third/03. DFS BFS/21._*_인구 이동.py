@@ -1,59 +1,59 @@
-from sys import stdin
-from collections import deque
+import sys
+from _collections import deque
 
-n, l, r = map(int, stdin.readline().split())
-board = [list(map(int, stdin.readline().split())) for _ in range(n)]
-
-dx = [1, 0, 0, -1]
-dy = [0, 1, -1, 0]
+# 상, 하, 좌, 우
+dy = [-1, 1, 0, 0]
+dx = [0, 0, -1, 1]
 
 
-def get_union(x, y):
-    flag = False
-    visited = {(x, y)}
-    q = deque([])
-    q.append((x, y))
-    cnt, val = 0, 0
+# bfs
+def bfs(row, col):
+    check = False
+    visited = {(row, col)}
+    q = deque([(row, col)])
+    val, cnt = 0, 0
 
     while q:
-        a, b = q.popleft()
-        val += board[x][y]
+        row, col = q.popleft()
+        val += arr[row][col]
         cnt += 1
         for i in range(4):
-            nx, ny = a + dx[i], b + dy[i] 
+            new_row, new_col = row + dy[i], col + dx[i]
 
-            if 0 <= nx < len(board) and 0 <= ny < len(board) and (nx, ny) not in visited and l <= abs(board[nx][ny] - board[a][b]) <= r:
-                q.append((nx, ny))
-                visited.add((nx, ny))
-                flag = True
+            if 0 <= new_row < N and 0 <= new_col < N and (new_row, new_col) not in visited and L <= abs(arr[new_row][new_col] - arr[row][col]) <= R:
+                q.append((new_row, new_col))
+                visited.add((new_row, new_col))
+                check = True
+    return val // cnt, visited, check
 
-    return val // cnt, visited, flag
+
+def move():
+    # 인구 이동
+    cnt, pre_cnt = 0, 0
+    while True:
+        is_Move = False
+        # 총 방문 기록
+        total_visited = set()
+        temp = []
+        for i in range(N):
+            for j in range(N):
+                if (i, j) not in total_visited:
+                    value, visited, flag = bfs(i, j)
+                    if flag:
+                        is_Move = True
+                    temp.append((value, visited))
+                    total_visited |= visited
+
+        for (value, visit) in temp:
+            for y, x in visit:
+                arr[y][x] = value
+        if not is_Move:
+            return cnt
+        cnt += 1
 
 
-total_count = 0
-cnt = 0
-while 1:
-    is_move = False
+if __name__ == "__main__":
+    N, L, R = map(int, sys.stdin.readline().split())
+    arr = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
-    total_visited = set()
-    temp = []
-
-    for i in range(n):
-        for j in range(n):
-            if (i, j) not in total_visited:
-                value, visited, flag = get_union(i, j)
-                if flag:
-                    is_move = True
-                temp.append((value, visited))
-                total_visited |= visited
-
-    for (value, visit) in temp:
-        for x, y in visit:
-            board[x][y] = value
-
-    if not is_move:
-        print(cnt)
-        break
-    cnt += 1
-
-print(total_count)
+    print(move())
