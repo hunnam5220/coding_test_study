@@ -14,6 +14,7 @@ def check(p):
     cnt = 0
     for i in p:
         if i == '(':
+            cnt += 1
         else:
             if cnt == 0:
                 return False
