@@ -26,6 +26,7 @@ def solution(n, arr):
 
 
 n = 5
+arr = [-15, -6, 1, 3, 7]
 print(solution(n, arr))
 
 n = 7
