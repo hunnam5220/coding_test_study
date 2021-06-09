@@ -18,6 +18,7 @@ def solution(n, c, arr):
                 val = arr[i]
                 cnt += 1
 
+        if cnt >= c:
             start = mid + 1
             res = mid
         else:
