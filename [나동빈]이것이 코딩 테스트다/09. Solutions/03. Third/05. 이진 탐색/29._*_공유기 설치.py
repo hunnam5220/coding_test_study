@@ -1,0 +1,36 @@
+from sys import stdin
+
+n, c = map(int, stdin.readline().split())
+arr = list(int(stdin.readline()) for _ in range(n))
+arr.sort()
+
+start = 0
+end = arr[-1]
+result = 0
+
+while start <= end:
+    mid = (start + end) // 2
+    cnt = 1
+    val = arr[0]
+
+    for i in range(1, n):
+        if arr[i] >= val + mid:
+            val = arr[i]
+            cnt += 1
+
+    if cnt >= c:
+        start = mid + 1
+        result = mid
+
+    else:
+        end = mid - 1
+
+print(result)
+"""
+5 3
+1
+2
+8
+4
+9
+"""
