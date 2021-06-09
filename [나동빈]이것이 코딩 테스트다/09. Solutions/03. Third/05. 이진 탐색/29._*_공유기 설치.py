@@ -26,11 +26,3 @@ while start <= end:
         end = mid - 1
 
 print(result)
-"""
-5 3
-1
-2
-8
-4
-9
-"""
