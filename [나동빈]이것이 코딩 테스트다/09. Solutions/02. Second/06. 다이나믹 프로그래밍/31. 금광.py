@@ -1,12 +1,15 @@
 from sys import stdin
 
 
-def dp(row, col, test_board):
-    for k in range(col - 1):
+def dp(col, row, test_board):
+    for col_idx in range(col - 1):
         for i in range(row):
             for j in [-1, 0, 1]:
-                if 0 <= i + j < row:
-                    test_board[i + j][k + 1] = max(test_board[i + j][k] + board[i + j][k + 1], test_board[i + j][k + 1])
+                if -1 < i + j < row:
+                    test_board[i + j][col_idx + 1] = max(test_board[i + j][col_idx + 1], board[i][col_idx] + board[i + j][col_idx + 1])
+
+        for i in range(row):
+            board[i][col_idx + 1] = test_board[i][col_idx + 1]
 
 
 for _ in range(int(stdin.readline())):
@@ -20,9 +23,15 @@ for _ in range(int(stdin.readline())):
             board[i].append(data[idx])
             idx += 1
     test_board = [item[:] for item in board]
-    dp(row, col, test_board)
+    dp(col, row, test_board)
 
-"""
+    result = -1e9
+
+    for i in range(row):
+        result = max(board[i][-1], result)
+
+    print(result)
+""" 
 2
 3 4
 1 3 3 2 2 1 4 1 0 6 4 7
