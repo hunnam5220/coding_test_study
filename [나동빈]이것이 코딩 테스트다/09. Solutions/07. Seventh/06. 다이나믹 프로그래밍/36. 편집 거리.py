@@ -14,7 +14,7 @@ def solution(s1, s2):
 
     for i in range(1, m + 1):
         for j in range(1, n + 1):
-            if s1[j - 1] == s1[i - 1]:
+            if s1[j - 1] == s2[i - 1]:
                 s[i][j] = s[i - 1][j - 1]
 
             else:
@@ -23,10 +23,4 @@ def solution(s1, s2):
     return s[m][n]
 
 
-st1 = stdin.readline().rstrip()
-st2 = stdin.readline().rstrip()
-if len(st1) >= len(st2):
-    print(solution(st1, st2))
-
-else:
-    print(solution(st2, st1))
+print(solution(stdin.readline().rstrip(), stdin.readline().rstrip()))
