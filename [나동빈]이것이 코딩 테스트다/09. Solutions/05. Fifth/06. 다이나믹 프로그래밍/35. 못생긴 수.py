@@ -20,6 +20,7 @@ def solution(n):
 
         if k == n5:
             i5 += 1
+            n5 = ugly[i5] * 5
 
     return ugly[n - 1]
 
