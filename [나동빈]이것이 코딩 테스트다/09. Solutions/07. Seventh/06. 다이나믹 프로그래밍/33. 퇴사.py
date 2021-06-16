@@ -13,6 +13,7 @@ def solution():
 
     for i in range(n - 1, -1, -1):
         time = arr[i][0] + i
+        if time <= n:
             dp[i] = max(arr[i][1] + dp[time], val)
             val = dp[i]
         else:
