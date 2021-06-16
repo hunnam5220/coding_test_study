@@ -25,3 +25,4 @@ def solution(s1, s2):
 
 print(solution("cat", "cut"))
 print(solution("saturday", "sunday"))
+print(solution("sunday", "saturday"))
