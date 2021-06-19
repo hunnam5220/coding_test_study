@@ -6,3 +6,11 @@ def solution():
 
 
 print(solution())
+
+"""
+4
+3
+4
+1
+1
+"""
