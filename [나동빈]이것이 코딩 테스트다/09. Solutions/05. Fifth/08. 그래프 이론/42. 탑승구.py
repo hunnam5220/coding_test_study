@@ -19,12 +19,23 @@ def union_parent(parent, a, b):
 
 def solution(g, p):
     parent = [0] * (g + 1)
-    
-    return
+    for i in range(1, g + 1):
+        parent[i] = i
+
+    res = 0
+
+    for i in range(p):
+        data = find_parent(parent, int(stdin.readline()))
+
+        if data == 0:
+            break
+        union_parent(parent, data, data - 1)
+        res += 1
+
+    return res
 
 
-G, P = map(int, stdin.readline().split())
-print(solution(G, P))
+print(solution(int(stdin.readline()), int(stdin.readline())))
 
 """
 4
