@@ -23,7 +23,6 @@ def solution(n):
         parent[i] = i
 
     edges = []
-    result = 0
 
     x, y, z = [], [], []
 
