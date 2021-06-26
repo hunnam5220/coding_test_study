@@ -1,11 +1,69 @@
 from sys import stdin
+from collections import deque
 
 
 def solution():
-    return
+    n = int(stdin.readline())
+    indegree = [0] * (n + 1)
+    data = list(map(int, stdin.readline().split()))
+
+    arr = [[False] * (n + 1) for _ in range(n + 1)]
+
+    for i in range(1, n + 1):
+        for j in range(i + 1, n + 1):
+            arr[data[i - 1]][data[j - 1]] = True
+            indegree[data[j - 1]] += 1
+
+    for i in range(int(stdin.readline())):
+        a, b = map(int, stdin.readline().split())
+
+        if arr[a][b]:
+            arr[a][b] = False
+            arr[b][a] = True
+            indegree[a] += 1
+            indegree[b] -= 1
+        else:
+            arr[a][b] = True
+            arr[b][a] = False
+            indegree[a] -= 1
+            indegree[b] += 1
+
+    q = deque()
+    for i in range(1, n + 1):
+        if indegree[i] == 0:
+            q.append(i)
+
+    res, cy, cer = [], False, True
+
+    for _ in range(n):
+        if len(q) == 0:
+            cy = True
+            break
+
+        if len(q) >= 2:
+            cer = False
+
+        now = q.popleft()
+        res.append(now)
+
+        for j in range(1, n + 1):
+            if arr[now][j]:
+                indegree[j] -= 1
+                if indegree[j] == 0:
+                    q.append(j)
+
+    if cy:
+        print("IMPOSSIBLE")
+    elif not cer:
+        print("?")
+    else:
+        for i in res:
+            print(i, end=' ')
+        print()
 
 
-print(solution())
+for tc in range(int(stdin.readline())):
+    solution()
 
 """
 3
