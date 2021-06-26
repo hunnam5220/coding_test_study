@@ -38,7 +38,8 @@ def solution():
     res = []
     cycle, certain = False, True
 
-    for i in range(n):
+    # 노드 개수만큼 반복
+    for _ in range(n):
         if len(q) == 0:
             cycle = True
             break
@@ -49,6 +50,7 @@ def solution():
         now = q.popleft()
         res.append(now)
 
+        # 해당 원소와 연결된 노드들의 진입차수에서 1 빼기
         for j in range(1, n + 1):
             if arr[now][j]:
                 indegree[j] -= 1
