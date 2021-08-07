@@ -7,7 +7,7 @@ cnt = 0
 for x in range(m):
     if cnt < k:
         result += arr[-1]
-        cnt +=1
+        cnt += 1
     else:
         result += arr[-2]
         cnt = 0
